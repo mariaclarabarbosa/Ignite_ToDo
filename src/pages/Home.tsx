@@ -17,7 +17,16 @@ export function Home() {
   }
 
   function handleToggleTaskDone(id: number) {
-    //TODO - toggle task done if exists
+    const modifiedList = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          done: !task.done,
+        }
+      }
+      return task;
+    });
+    setTasks(modifiedList);
   }
 
   function handleRemoveTask(id: number) {
